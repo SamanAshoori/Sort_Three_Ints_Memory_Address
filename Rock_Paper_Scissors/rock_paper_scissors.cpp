@@ -1,6 +1,8 @@
 #include <iostream> //for character input and output
-#include <random>
+#include <cstdlib>
 #include <unordered_map>
+#include <string>
+#include <ctime>
 
 int main()
 {
