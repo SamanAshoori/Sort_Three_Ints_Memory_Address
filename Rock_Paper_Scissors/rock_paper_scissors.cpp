@@ -26,7 +26,7 @@ int main()
     umap[3] = "Scissors"; 
 
 
-    while (playerScore != 3 || computerScore != 3 )
+    while (playerScore != 3 && computerScore != 3 )
     {
         std::cout << "Welcome to Rock Paper Scissors - Please Enter 1 for Rock , 2 for Paper and 3 for Scissors: ";
         int x{}; //defining variable to hold user input
