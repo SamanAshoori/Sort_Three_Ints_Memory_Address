@@ -76,12 +76,12 @@ int main()
     if(playerScore == 3)
     {
         std::cout << "You Won!" << '\n';
-        std::cout << "Games Player " << gamesPlayed; 
+        std::cout << "Games Played: " << gamesPlayed; 
     }
     else
     {
         std::cout << "Computer Won!" << '\n';
-        std::cout << "Games Player " << gamesPlayed; 
+        std::cout << "Games Played: " << gamesPlayed; 
     }
 
     
