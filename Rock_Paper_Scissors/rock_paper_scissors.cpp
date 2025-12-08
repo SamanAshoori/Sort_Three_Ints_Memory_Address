@@ -27,7 +27,6 @@ int main()
     umap[2] = "Paper"; 
     umap[3] = "Scissors"; 
 
-
     while (playerScore != 3 && computerScore != 3 )
     {
         std::cout << "-------------------------------------------------------------------------------------------" << '\n';
@@ -98,6 +97,4 @@ int main()
             std::cout << "Round " << i+1 << ": " << rounds[i] << "\n";
         }
     }
-
-
 }
