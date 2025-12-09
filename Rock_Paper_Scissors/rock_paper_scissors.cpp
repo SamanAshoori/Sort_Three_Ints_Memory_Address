@@ -82,7 +82,7 @@ int main()
     std::cout << "------------------------------------------------------------" << '\n';
     if(playerScore == 3) { displayFinalStats(rounds,"You",gamesPlayed);
     }
-    else{ displayFinalStats(rounds,"Computer",gamesPlayed);
+    else if (computerScore == 3) { displayFinalStats(rounds,"Computer",gamesPlayed);
     }
 }
 
