@@ -5,6 +5,9 @@
 #include <ctime>
 #include <vector> //for scoring
 
+//Function Declaration
+void displayFinalStats();
+
 int main()
 {
     //Seed Random Number
@@ -97,4 +100,9 @@ int main()
             std::cout << "Round " << i+1 << ": " << rounds[i] << "\n";
         }
     }
+}
+
+void displayFinalStats()
+{
+    
 }
