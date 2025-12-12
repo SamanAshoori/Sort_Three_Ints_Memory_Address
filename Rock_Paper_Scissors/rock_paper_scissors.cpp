@@ -22,7 +22,7 @@ int main()
     int gamesPlayed = 0;
     std::vector <std::string> rounds;
 
-    // Create an unordered_map
+    // Create an unordered_map to map numbers to strings
     std::unordered_map<int,std::string> umap;
 
     // Insert key-value pairs into the unordered_map
