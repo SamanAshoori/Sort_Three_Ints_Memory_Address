@@ -18,14 +18,7 @@ int main(){
 
 std::string selectRandomWord(){
     
-
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    int max = 10;
-    int min = 1;
-    int range = max - min + 1;
-
-    int randomNum = rand() % range + min;
-    
     std::string words[10] = {
         "programmer",
         "language",
@@ -38,8 +31,13 @@ std::string selectRandomWord(){
         "vortex",
         "luminance"
     };
-    std::string word = words[randomNum];
 
+    // Auto-calculate size
+    int size = sizeof(words) / sizeof(words[0]);
+    
+    // Generates 0 to 9 safely
+    int randomNum = std::rand() % size;
+    std::string word = words[randomNum];
 
     return word;
 }
