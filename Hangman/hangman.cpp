@@ -41,3 +41,9 @@ std::string selectRandomWord(){
 
     return word;
 }
+
+bool guessLetter(std::string word, char input){
+    //example outputfor now
+    return true
+
+}
