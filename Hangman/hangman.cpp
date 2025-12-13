@@ -43,7 +43,12 @@ std::string selectRandomWord(){
 }
 
 bool guessLetter(std::string word, char input){
+
+    int n = word.length();
+    for (int i = 0; i < n; i++){
+        //for loop to run through - need to add
+    }
     //example outputfor now
-    return true
+    return true;
 
 }
