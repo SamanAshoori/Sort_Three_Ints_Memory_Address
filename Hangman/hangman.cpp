@@ -10,13 +10,12 @@ bool guessLetter(std::string word, char input);
 int main(){
     //std::string word = selectRandomWord(); - hidden for testing
     std::string word = "Test";
-    //std::cout << word; - dont need it for now as we know it works
 
-    //std::string guess;
-    //std::cin >> guess;
-    //std::cout << guess;
-    std::cout << guessLetter(word,'t');
-    std::cout << "Test";
+    char guess;
+    std::cout << "Please enter a guess" << '\n';
+    std::cin >> guess;
+
+    std::cout << guessLetter(word,guess);
 
 }
 
