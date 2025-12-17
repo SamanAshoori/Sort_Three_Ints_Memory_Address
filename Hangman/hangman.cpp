@@ -6,6 +6,7 @@
 
 std::string selectRandomWord();
 bool guessLetter(std::string word, char input);
+std::string makeDisplayWord(std::string word);
 
 int main(){
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
@@ -52,4 +53,11 @@ bool guessLetter(std::string word, char input){
         }
     }
     return false; //if reached end of for loop and no true then it does not exist
+}
+
+std::string makeDisplayWord(std::string word){
+    std::string displayWord;
+    //To DO - Make code that gets length of word and changes all chars to "_" 
+    return displayWord;
+
 }
