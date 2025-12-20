@@ -3,9 +3,10 @@
 #include <cstdlib>
 #include <string>
 #include <ctime>
+#include <vector>
 
 std::string selectRandomWord();
-int guessLetter(std::string word, char input);
+std::vector<int> guessLetter(std::string word, char input);
 std::string makeDisplayWord(std::string word);
 
 int main(){
@@ -49,14 +50,14 @@ std::string selectRandomWord(){
     return word;
 }
 
-int guessLetter(std::string word, char input){
+std::vector<int> guessLetter(std::string word, char input){
     //guessLetter will tell us how many times each the input char appears in the string
-    int output = 0;
+    std::vector<int> output;
     input = std::tolower(input);
     int n = word.length();
     for (int i = 0; i < n; i++){
         if (input == word[i]){
-            output++;
+            output.push_back(i);
         }
     }
     return output;
@@ -70,4 +71,6 @@ std::string makeDisplayWord(std::string word){
 
 }
 
-//char revealLetter
+std::string revealLetter(){
+
+}
