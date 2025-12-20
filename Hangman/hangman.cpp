@@ -12,29 +12,26 @@ std::string makeDisplayWord(std::string word);
 void revealLetters(const std::vector<int>& inputVector , std::string& displayWord , char guess);
 
 int main(){
+
+    //Variable Assignment
     int lives = 13;
     int guesses = 0;
     std::vector<int> guessVector;
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
-    //std::string word = selectRandomWord(); - hidden for testing
-    std::string word = "test";
+    std::string word = selectRandomWord();
     std::string displayWord = makeDisplayWord(word);
 
-    //char guess;
-    //std::cout << "Please enter a guess" << '\n';
-    //std::cin >> guess;
 
-    guessVector = guessLetter(word,'t');
+    std::cout << "Your word to guess is: " << displayWord << '\n';
+    //Main Game Loop - while you have lives and the display word is still hidden
+    while (lives > 0 || displayWord != word){
+        char guess;
+        std::cout << "Please enter a guess" << '\n';
+        std::cin >> guess;
+        
 
-    for (int i : guessVector) {
-        std::cout << i << " ";
     }
-    std::cout << std::endl;
-    revealLetters(guessVector, displayWord ,'t');
-    std::cout << displayWord;
 
-    //std::cout << word << '\n';
-    //std::cout << displayWord << '\n';
     return 1;
     
 
