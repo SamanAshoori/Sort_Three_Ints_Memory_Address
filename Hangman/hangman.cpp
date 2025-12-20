@@ -8,6 +8,7 @@
 std::string selectRandomWord();
 std::vector<int> guessLetter(std::string word, char input);
 std::string makeDisplayWord(std::string word);
+void revealLetters(std::vector<int>& inputVector , std::string& displayWord , char guess);
 
 int main(){
     int lives = 13;
@@ -28,7 +29,7 @@ int main(){
         std::cout << i << " ";
     }
     std::cout << std::endl;
-
+    revealLetters(guessVector, displayWord ,'t');
 
     //std::cout << word << '\n';
     //std::cout << displayWord << '\n';
@@ -79,6 +80,9 @@ std::string makeDisplayWord(std::string word){
 
 }
 
-std::string revealLetter(){
+void revealLetters(const std::vector<int>& inputVector , std::string& displayWord , char guess){
+    for (int i: inputVector){
+        displayWord[i] = guess;
+    }
 
 }
