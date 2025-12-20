@@ -5,7 +5,7 @@
 #include <ctime>
 
 std::string selectRandomWord();
-bool guessLetter(std::string word, char input);
+int guessLetter(std::string word, char input);
 std::string makeDisplayWord(std::string word);
 
 int main(){
@@ -49,16 +49,17 @@ std::string selectRandomWord(){
     return word;
 }
 
-bool guessLetter(std::string word, char input){
-
+int guessLetter(std::string word, char input){
+    //guessLetter will tell us how many times each the input char appears in the string
+    int output = 0;
     input = std::tolower(input);
     int n = word.length();
     for (int i = 0; i < n; i++){
         if (input == word[i]){
-            return true;
+            output++;
         }
     }
-    return false; //if reached end of for loop and no true then it does not exist
+    return output;
 }
 
 std::string makeDisplayWord(std::string word){
@@ -68,3 +69,5 @@ std::string makeDisplayWord(std::string word){
     return word;
 
 }
+
+//char revealLetter
