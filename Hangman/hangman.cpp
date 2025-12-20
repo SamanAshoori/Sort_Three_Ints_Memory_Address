@@ -12,6 +12,7 @@ std::string makeDisplayWord(std::string word);
 int main(){
     int lives = 13;
     int guesses = 0;
+    std::vector<int> guessVector;
     std::srand(static_cast<unsigned int>(std::time(nullptr)));
     //std::string word = selectRandomWord(); - hidden for testing
     std::string word = "test";
@@ -21,9 +22,11 @@ int main(){
     //std::cout << "Please enter a guess" << '\n';
     //std::cin >> guess;
 
-    //std::cout << guessLetter(word,guess);
-    std::cout << word << '\n';
-    std::cout << displayWord << '\n';
+    guessVector = guessLetter(word,'t');
+    
+
+    //std::cout << word << '\n';
+    //std::cout << displayWord << '\n';
     
 
 }
