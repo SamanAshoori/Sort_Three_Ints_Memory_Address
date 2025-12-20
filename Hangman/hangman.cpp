@@ -30,6 +30,7 @@ int main(){
     }
     std::cout << std::endl;
     revealLetters(guessVector, displayWord ,'t');
+    std::cout << displayWord;
 
     //std::cout << word << '\n';
     //std::cout << displayWord << '\n';
