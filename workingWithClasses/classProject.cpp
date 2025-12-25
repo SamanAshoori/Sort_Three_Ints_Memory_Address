@@ -17,3 +17,7 @@ class Entity {
         int health;
         std::string name;
 };
+
+class Player : public Entity{
+
+};
