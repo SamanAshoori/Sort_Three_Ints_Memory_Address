@@ -9,3 +9,11 @@
 //Spicy Twist (For the brave): Implement Inheritance. Make a base class Entity, then have Player and Goblin inherit from it.
 
 //Above Prompt is prompt when asked where can I go from hangman to improve c++
+
+#include <string>
+
+class Entity {
+    public:
+        int health;
+        std::string name;
+};
