@@ -32,3 +32,8 @@ class Player : public Entity{
 
 
 };
+
+
+int main(){
+    return 0;
+}
