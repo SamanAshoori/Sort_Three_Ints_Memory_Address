@@ -39,10 +39,14 @@ class Entity {
 
 class Player : public Entity{
 
-
 };
 
 
 int main(){
+
+    Entity testEntity;
+
+    testEntity.setMaxHealth(10);
+    testEntity.setName("Test");
     return 0;
 }
