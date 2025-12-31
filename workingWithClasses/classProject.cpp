@@ -56,8 +56,4 @@ int main(){
 }
 
 
-int isEven(int num){
-    if(num % 2 == 0){
-        return true;
-    }
-}
+
