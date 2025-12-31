@@ -54,3 +54,10 @@ int main(){
     testEntity.setMaxHealth(10);
     return 0;
 }
+
+
+int isEven(int num){
+    if(num % 2 == 0){
+        return true;
+    }
+}
