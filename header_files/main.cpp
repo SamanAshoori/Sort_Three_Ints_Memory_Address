@@ -1,7 +1,7 @@
-//main.cpp
-#include "print_hello.cpp"
+// main.cpp
+#include "print.hpp"
 
 int main() {
-    print();
+    PrintHello();   // call the function declared in the header
     return 0;
 }
