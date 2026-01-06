@@ -2,6 +2,15 @@
 #include <iostream>
 #include <fstream>
 
-int main(){
+void writeFile();
 
+int main(){
+    writeFile();
+    return 0;
+}
+
+void writeFile(){
+    std::ofstream test("test.txt");
+    test << "This is a test";
+    test.close();
 }
