@@ -5,7 +5,7 @@
 void writeFile();
 
 int main(){
-    writeFile();
+    writeFile("Hello World!");
     return 0;
 }
 
