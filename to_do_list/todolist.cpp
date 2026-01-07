@@ -2,10 +2,11 @@
 #include <iostream>
 #include <fstream>
 
-void writeFile();
+void writeFile(std::string input);
 
+//main.cpp
 int main(){
-    writeFile("Hello World!");
+    writeFile("Hello World! + Saman");
     return 0;
 }
 
