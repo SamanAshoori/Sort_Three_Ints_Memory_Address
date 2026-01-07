@@ -6,7 +6,8 @@ void writeFile(std::string input);
 
 //main.cpp
 int main(){
-    writeFile("Hello World! + Saman");
+    writeFile("Hello World! + Saman + Build Test + New Line") ;
+    std::cout << "File Created" << '\n';
     return 0;
 }
 
