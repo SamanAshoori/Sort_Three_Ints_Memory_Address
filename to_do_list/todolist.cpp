@@ -8,6 +8,11 @@ void writeFile(std::string input);
 int main(){
     writeFile("Hello World! + Saman + Build Test + New Line") ;
     std::cout << "File Created" << '\n';
+
+    std::ifstream inputFile("test.txt");
+    if(!inputFile){
+        std::cerr << "Error opening file" << '\n';
+    }
     return 0;
 }
 
