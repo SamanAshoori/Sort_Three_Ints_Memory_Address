@@ -1,0 +1,1 @@
+#Creating as many prime numbers as I can in one second
