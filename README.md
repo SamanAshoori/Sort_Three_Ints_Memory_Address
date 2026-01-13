@@ -2,7 +2,7 @@
 
 This monorepo documents my trajectory from absolute zero to becoming cracked at C++.
 
-I have no prior experience with this language. This repository serves as a rigid archive of my progression, housing every project from basic syntax exercises to complex systems as I advance. The ultimate objective is to write GOATED code and master manual memory management.
+I have no prior experience with this language. Hopefully it doesnt show
 
 We maintain W motion only.
 
