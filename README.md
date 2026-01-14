@@ -6,6 +6,8 @@ I have no prior experience with this language. Hopefully it doesnt show
 
 We maintain W motion only.
 
+Doing an Intro to OpenMP course with HLRS
+
 ## Project Index
 
 The repository is organised as a monorepo. As my proficiency increases, more complex directories will be initialised.
