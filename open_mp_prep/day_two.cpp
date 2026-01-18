@@ -3,7 +3,7 @@
 
 int main() {
     // Set the desired number of threads (optional, defaults to CPU core count)
-    omp_set_num_threads(4);
+    omp_set_num_threads(8);
 
     // Begin the parallel region
     #pragma omp parallel
