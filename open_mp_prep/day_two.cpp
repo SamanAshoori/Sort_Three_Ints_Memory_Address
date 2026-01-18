@@ -3,7 +3,11 @@
 
 int main() {
     // Set the desired number of threads (optional, defaults to CPU core count)
-    omp_set_num_threads(8);
+    omp_set_num_threads(21);
+    int num_procs = omp_get_num_procs();
+    printf("Number of processors: %d\n", num_procs);
+    printf("-----------------------------------\n");
+
 
     // Begin the parallel region
     #pragma omp parallel
