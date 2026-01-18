@@ -24,5 +24,3 @@ int main(){
     std::cout << std::endl;
     return 0;
 }
-
-//TO DO: LOOP 3 TIMES AND GET AVERAGE PRIMES CREATED IN 1 SECOND
