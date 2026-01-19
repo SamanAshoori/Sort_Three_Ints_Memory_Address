@@ -13,16 +13,9 @@ bool isPrime(int n){
     
 }
 
-void printPrimes(int n){
-    for (int i = 2; i <= n; i++)
-        if (isPrime(i))
-            std::cout << i << " ";
-}
-
-
-
-int main(){
-    omp_set_num_threads(25);
+int main()
+{
+    omp_set_num_threads(30);
     int count = 0;
     int next_num = 2;
     double start_time = omp_get_wtime();
@@ -33,9 +26,7 @@ int main(){
         {
             int my_num;
             #pragma omp atomic capture
-            {
-                my_num = next_num++;
-            }
+            my_num = next_num++;
             if (isPrime(my_num)){
                 #pragma omp atomic
                 count++;

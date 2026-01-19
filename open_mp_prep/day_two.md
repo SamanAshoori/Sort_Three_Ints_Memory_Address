@@ -54,7 +54,7 @@ Hello World from thread 4 of 8
 
 I used `omp_get_num_procs()` to check the hardware and confirmed the machine has **32 logical processors**. 
 
-To test how the system handles unusual numbers, I forced the programme to run with 21 threads (get it cause 21 is funny).
+To test how the system handles unusual numbers, I forced the programme to run with 21 threads.
 
 ### Code Snippet
 
@@ -94,3 +94,105 @@ Hello World from thread 13 of 21
 You will notice the output is not sequential (e.g., Thread 2 prints before Thread 0). 
 
 This is standard behaviour in parallel programming. The operating system schedules threads independently, so they "race" to print to the screen. The order will likely change every time the code is run.
+
+## 4. Practical Application: Prime Number Speed Test
+
+To test performance, I created a benchmark to find as many prime numbers as possible in exactly 1 second. I compared a standard C++ implementation against an OpenMP implementation.
+
+### 4.1. Baseline (No Parallelism)
+I ran a standard single-threaded loop compiled with `-O3` optimisation.
+
+**Code:**
+```cpp
+#include <iostream>
+#include <cmath>
+#include <chrono> 
+
+bool isPrime(int n) {
+    if (n <= 1) return false;
+    for (int i = 2; i * i <= n; i++) {
+        if (n % i == 0) return false;
+    }
+    return true;
+}
+
+int main() {
+    using namespace std::chrono;
+    int count = 0;   
+    int num = 2;  
+    auto start = high_resolution_clock::now();
+
+    while (true) {
+        if (isPrime(num)) count++;
+        num++;
+        auto now = high_resolution_clock::now();
+        if (duration_cast<seconds>(now - start).count() >= 1) break;
+    }
+    std::cout << "Found " << count << " primes." << std::endl;
+    std::cout << "Highest number checked: " << num << std::endl;
+    return 0;
+}
+```
+
+**Output:**
+```text
+Counting primes for 1 second...
+Found 353760 primes in 1 second.
+Highest number checked: 5081438
+```
+
+### 4.2. OpenMP Implementation (30 Threads)
+I parallelised the workload using 30 threads. I used `atomic capture` to ensure threads could pick numbers from a shared counter without duplication.
+
+**Code:**
+```cpp
+#include <math.h>
+#include <iostream>
+#include <omp.h> 
+
+bool isPrime(int n){
+    if (n <= 1) return false;
+    for (int i = 2; i < (sqrt(n) + 1); i++)
+        if (n % i == 0) return false;
+    return true;
+}
+
+int main() {
+    omp_set_num_threads(30);
+    int count = 0;
+    int next_num = 2;
+    double start_time = omp_get_wtime();
+
+    #pragma omp parallel
+    {
+        while (omp_get_wtime() - start_time < 1) {
+            int my_num;
+            #pragma omp atomic capture
+            my_num = next_num++;
+            
+            if (isPrime(my_num)){
+                #pragma omp atomic
+                count++;
+            }
+        }
+    }
+    std::cout << "Count: " << count << std::endl;
+    std::cout << "Checked up to: " << next_num << std::endl;
+    std::cout << "Time: " << omp_get_wtime() - start_time << std::endl;
+    return 0;
+}
+```
+
+**Output:**
+```text
+Count: 905205
+Checked up to: 13918717
+Time: 1.00012
+```
+
+### 4.3. Performance Analysis
+* **Baseline:** 353,760 primes found.
+* **OpenMP (30 Threads):** 905,205 primes found.
+* **Speedup:** ~2.56x.
+
+Although I used 30 cores, the speedup was not 30x. This suggests a bottleneck known as **Atomic Contention**. The threads are spending significant time waiting to access the shared `next_num` variable (the critical section) rather than calculating. In future, increasing the "granularity" (batch size) of work could solve this.
